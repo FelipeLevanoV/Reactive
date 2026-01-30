@@ -1,0 +1,37 @@
+# Configuracion del puerto
+server:
+  port: 8085
+
+# Configuracion de la conexion
+spring:
+  application:
+    name: Sistema
+
+# Base de datos en modo reactivo
+  r2dbc:
+    url: r2dbc:oracle://localhost:15021/XE
+    username: Proyecto_db
+    password: ORCL1234
+    pool:
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30m
+      validation-query: SELECT 1 FROM DUAL
+
+# Configuracion de Swagger/OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+# Configuracion de r2dbc
+logging:
+  level:
+    pe.edu.vg.Sistema: DEBUG
+    org.springframework.r2dbc: DEBUG
+    io.r2dbc.oracle: DEBUG
+    reactor.netty: INFO
+
+
